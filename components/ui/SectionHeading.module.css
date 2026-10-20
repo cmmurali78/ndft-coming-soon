@@ -1,0 +1,85 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.markLg {
+  width: 112px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.markSm {
+  width: 33px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--purple-500);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: -0.01em;
+  color: var(--purple-900);
+}
+
+.center .title {
+  margin-inline: auto;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin-top: 9px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.27;
+  color: var(--purple-900);
+}
+
+.center .subtitle {
+  margin-inline: auto;
+}
+
+@media (max-width: 1199px) {
+  .title {
+    font-size: 46px;
+  }
+}
+
+@media (max-width: 767px) {
+  .markLg {
+    width: 84px;
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 1.12;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+}

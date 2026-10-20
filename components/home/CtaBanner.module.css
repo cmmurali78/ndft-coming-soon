@@ -1,0 +1,214 @@
+.section {
+  padding-top: 110px;
+}
+
+.frame {
+  padding: 20px 20px 72px;
+  border-radius: 60px;
+  background: #c6aee4;
+}
+
+.panel {
+  position: relative;
+  height: 456px;
+  overflow: hidden;
+  border-radius: 50px;
+  background: #80489a;
+  isolation: isolate;
+}
+
+.circle {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  transition: transform 0.8s var(--ease);
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 309px;
+  left: 1127px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: #7a4394;
+  transform: translate(-50%, -50%);
+}
+
+.circleSoft {
+  top: 451px;
+  left: 803px;
+  width: 538px;
+  height: 538px;
+  background: #9872ca;
+  transform: translate(-50%, -50%);
+}
+
+.circleBright {
+  top: 461px;
+  left: 1066px;
+  width: 578px;
+  height: 578px;
+  background: #7c3cd2;
+  transform: translate(-50%, -50%);
+}
+
+.panel:hover .circleSoft {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+.panel:hover .circleBright {
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+/* The design frames the group from the top of the panel; crop the legs rather than distort the photo. */
+.students {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 28px;
+  width: 532px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 50px 0 0 50px;
+  color: #ffffff;
+}
+
+.mark {
+  width: 118px;
+  height: auto;
+}
+
+.title {
+  margin-top: 26px;
+  font-family: var(--font-heading);
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.text {
+  margin-top: 22px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 27px;
+  margin-top: 22px;
+}
+
+@media (max-width: 1199px) {
+  .panel::before,
+  .circleSoft,
+  .circleBright {
+    left: auto;
+    right: -240px;
+  }
+
+  .circleSoft {
+    right: 60px;
+    transform: translate(50%, -50%);
+  }
+
+  .panel:hover .circleSoft {
+    transform: translate(50%, -50%) scale(1.04);
+  }
+
+  .circleBright {
+    right: -300px;
+  }
+
+  .students {
+    right: 0;
+    width: 44%;
+    max-width: 380px;
+  }
+
+  .content {
+    max-width: 56%;
+    padding-right: 12px;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-top: 64px;
+  }
+
+  .frame {
+    padding: 10px 10px 36px;
+    border-radius: 36px;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border-radius: 28px;
+  }
+
+  .content {
+    order: 1;
+    max-width: none;
+    padding: 32px 24px 0;
+  }
+
+  .title {
+    margin-top: 16px;
+    font-size: 40px;
+  }
+
+  .text {
+    margin-top: 12px;
+    font-size: 17px;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .students {
+    order: 2;
+    position: relative;
+    right: auto;
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 24px auto 0;
+  }
+
+  .panel::before,
+  .circleBright {
+    display: none;
+  }
+
+  .circleSoft {
+    top: auto;
+    right: 50%;
+    bottom: -150px;
+    width: 420px;
+    height: 420px;
+    transform: translate(50%, 0);
+  }
+
+  .panel:hover .circleSoft {
+    transform: translate(50%, 0);
+  }
+}

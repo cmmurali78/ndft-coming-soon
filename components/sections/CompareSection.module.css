@@ -1,0 +1,149 @@
+.section {
+  padding-top: var(--space-top, 64px);
+}
+
+.frame {
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 20px;
+  background: var(--table-strong);
+}
+
+.narrow {
+  max-width: 898px;
+  margin-inline: auto;
+}
+
+.scroller {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+.table {
+  width: 100%;
+  /* label column + ~130px per program; narrower screens scroll the table horizontally */
+  min-width: calc(var(--label-w, 293px) + var(--cols) * 130px);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.25;
+  color: #000000;
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  padding: 0 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Label column */
+.corner,
+.table tbody th {
+  width: var(--label-w, 293px);
+  background: var(--table-strong);
+}
+
+.table tbody th {
+  font-weight: 600;
+}
+
+/* Header row */
+.table thead th {
+  height: 94px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Alternating program columns: odd columns tinted, even columns white */
+.table thead th,
+.table tbody td {
+  background: #ffffff;
+}
+
+.table thead th:nth-child(even),
+.table tbody td:nth-child(even) {
+  background: var(--table-soft);
+}
+
+.table tbody tr > * {
+  height: 40px;
+  border-top: 1px solid color-mix(in srgb, var(--table-strong) 55%, #ffffff);
+}
+
+.table thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+.table tbody tr:last-child > * {
+  height: 41px;
+}
+
+.table tbody tr {
+  transition: filter 0.2s var(--ease);
+}
+
+.table tbody tr:hover > td {
+  filter: brightness(0.97);
+}
+
+.check {
+  display: block;
+  color: #000000;
+}
+
+.dash {
+  color: #000000;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  margin-top: 26px;
+  font-family: var(--font-heading);
+  font-size: 18px;
+}
+
+@media (max-width: 1199px) {
+  .table {
+    --label-w: 220px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-top: 48px;
+  }
+
+  .frame {
+    margin-top: 28px;
+    padding: 6px;
+    border-radius: 16px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .table thead th {
+    font-size: 16px;
+  }
+
+  .table {
+    --label-w: 170px;
+  }
+
+  .cta {
+    gap: 16px;
+  }
+}

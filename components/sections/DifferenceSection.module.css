@@ -1,0 +1,109 @@
+.section {
+  display: grid;
+  grid-template-columns: var(--img-w) minmax(0, 1fr);
+  align-items: start;
+  gap: 36px;
+  padding-top: var(--space-top, 50px);
+}
+
+.media {
+  position: relative;
+  height: var(--img-h);
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Anchor to the top so portraits (e.g. the runway model) keep their face in frame. */
+.image {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.8s var(--ease);
+}
+
+.media:hover .image {
+  transform: scale(1.03);
+}
+
+.content {
+  padding-top: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 148px;
+  padding: 10px 10px 14px;
+  border: 1px solid #efebf4;
+  border-radius: 16px;
+  background: #ffffff;
+  font-family: var(--font-heading);
+  font-size: var(--label-size);
+  line-height: 1.3;
+  color: #000000;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 45%, #ffffff);
+  box-shadow: 0 14px 30px -16px rgba(67, 32, 91, 0.25);
+}
+
+.icon {
+  width: 76px;
+  height: 76px;
+  margin-bottom: 12px;
+  object-fit: contain;
+}
+
+@media (max-width: 1199px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .media {
+    height: 420px;
+  }
+
+  .content {
+    padding-top: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-top: 56px;
+  }
+
+  .media {
+    height: 300px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .card {
+    min-height: 0;
+    font-size: 15px;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+}

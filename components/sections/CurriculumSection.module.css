@@ -1,0 +1,256 @@
+.section {
+  padding-top: var(--space-top, 64px);
+}
+
+.modules {
+  display: grid;
+  grid-template-columns: repeat(var(--count), minmax(0, 1fr));
+  gap: 11px;
+  margin-top: 34px;
+}
+
+.narrow {
+  max-width: 1148px;
+  margin-inline: auto;
+  gap: 27px;
+}
+
+.module {
+  min-height: 196px;
+  padding: 10px 2px 6px 10px;
+  border: 1px solid #efebf4;
+  border-radius: 16px;
+  background: #ffffff;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.module:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 45%, #ffffff);
+  box-shadow: 0 14px 30px -16px rgba(67, 32, 91, 0.25);
+}
+
+.moduleTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.23;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.tag {
+  margin-top: 11px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.moduleText {
+  margin-top: 10px;
+  padding-right: 8px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.list {
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.tag + .list {
+  margin-top: 9px;
+}
+
+.list li {
+  position: relative;
+  padding-left: 10px;
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- Outcome panel ---------- */
+
+.outcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 26px;
+  padding: 16px 25px 24px;
+  border-radius: 20px;
+  background: var(--panel-tint);
+  text-align: center;
+}
+
+.outcomeMark {
+  width: 33px;
+  height: auto;
+}
+
+.outcomeLabel {
+  margin-top: 3px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.outcomeTitle {
+  margin-top: 16px;
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.tagline {
+  margin-top: 4px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.outcomeGrid {
+  display: grid;
+  grid-template-columns: repeat(var(--count), minmax(0, 1fr));
+  gap: 11px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.tagline + .outcomeGrid {
+  margin-top: 24px;
+}
+
+.outcomeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 117px;
+  padding: 13px 10px 12px;
+  border-radius: 12px;
+  background: #ffffff;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.outcomeCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px -14px rgba(67, 32, 91, 0.3);
+}
+
+.outcomeIcon {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.outcomeCardTitle {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.19;
+}
+
+.detailed .outcomeCard {
+  align-items: flex-start;
+  min-height: 183px;
+  padding: 12px 10px 16px;
+  text-align: left;
+}
+
+.detailed .outcomeCardTitle {
+  margin-top: 14px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.outcomeCardText {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.19;
+}
+
+@media (max-width: 1199px) {
+  .modules,
+  .narrow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .outcomeGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .detailed {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-top: 48px;
+  }
+
+  .modules,
+  .narrow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .module {
+    min-height: 0;
+  }
+
+  .moduleTitle {
+    font-size: 16px;
+  }
+
+  .outcome {
+    padding: 16px 12px 16px;
+  }
+
+  .outcomeTitle {
+    margin-top: 14px;
+    font-size: 22px;
+  }
+
+  .tagline {
+    font-size: 16px;
+  }
+
+  .outcomeGrid,
+  .detailed {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .outcomeCardTitle {
+    font-size: 14px;
+  }
+
+  .detailed .outcomeCardTitle {
+    font-size: 17px;
+  }
+
+  .outcomeCardText {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .modules,
+  .narrow,
+  .detailed {
+    grid-template-columns: 1fr;
+  }
+}

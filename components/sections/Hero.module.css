@@ -1,0 +1,300 @@
+.hero {
+  --hero-base: var(--hero-from);
+}
+
+.home {
+  --hero-base: #563174;
+  --hero-glow: #c3a0d4;
+  --glow-shape: 700px 560px at 71% 45%;
+}
+
+.stream {
+  --glow-shape: 680px 600px at 67% 60%;
+}
+
+.banner {
+  position: relative;
+  height: 561px;
+  overflow: hidden;
+  background: radial-gradient(ellipse var(--glow-shape), var(--hero-glow) 0%, var(--hero-base) 100%), var(--hero-base);
+  isolation: isolate;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.rings {
+  position: absolute;
+  z-index: 0;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 1.5;
+}
+
+.media {
+  position: absolute;
+  z-index: 1;
+}
+
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mediaRight {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+}
+
+.mediaRight img {
+  width: auto;
+  height: 100%;
+}
+
+/* When the stage is narrower than the viewport, pin the photo to the viewport edge instead. */
+@media (min-width: 1441px) {
+  .mediaRight {
+    right: calc((1440px - 100vw) / 2);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.text {
+  max-width: 660px;
+  padding-top: var(--offset, 52px);
+  color: #ffffff;
+  animation: heroIn 0.6s var(--ease) both;
+}
+
+.home .text {
+  max-width: 600px;
+  padding-top: var(--offset, 0px);
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.164;
+  letter-spacing: -0.005em;
+}
+
+.home .title {
+  line-height: 1.11;
+}
+
+.title span {
+  display: block;
+}
+
+.highlight {
+  color: var(--purple-900);
+}
+
+.home .highlight {
+  color: var(--pink);
+}
+
+.description {
+  margin-top: 30px;
+  max-width: 575px;
+  font-size: 16px;
+  line-height: 1.22;
+}
+
+.home .description {
+  margin-top: 36px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-top: 20px;
+}
+
+.home .actions {
+  margin-top: 16px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 36px;
+}
+
+.home .dots {
+  margin-top: 42px;
+}
+
+.dot,
+.dotActive {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lavender-300);
+  transition: background-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+button.dot,
+button.dotActive {
+  cursor: pointer;
+}
+
+button.dot:hover {
+  transform: scale(1.3);
+}
+
+.dotActive {
+  background: var(--purple-900);
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1199px) {
+  .banner {
+    height: auto;
+    min-height: 480px;
+  }
+
+  .content {
+    min-height: 480px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .text,
+  .home .text {
+    max-width: 52%;
+    padding-top: 0;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  /* Let headline lines flow naturally once the design's fixed line breaks no longer fit */
+  .title span {
+    display: inline;
+  }
+
+  .media:not(.mediaRight) {
+    top: auto !important;
+    bottom: 0;
+    left: auto !important;
+    right: 2%;
+    width: 38% !important;
+  }
+
+  .mediaRight {
+    top: auto;
+    right: -20%;
+    height: 86%;
+  }
+
+  .rings {
+    left: auto !important;
+    right: -40px;
+    top: 40px !important;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 899px) {
+  .banner {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stage {
+    position: relative;
+    order: 2;
+    height: 370px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .content {
+    order: 1;
+    min-height: 0;
+    padding-top: 40px;
+    padding-bottom: 8px;
+  }
+
+  .text,
+  .home .text {
+    max-width: none;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 1.12;
+  }
+
+  .description,
+  .home .description {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.4;
+    max-width: none !important;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .media:not(.mediaRight) {
+    top: auto !important;
+    bottom: 0;
+    left: 50% !important;
+    right: auto;
+    width: min(72%, 260px) !important;
+    transform: translateX(-50%);
+  }
+
+  .mediaRight {
+    left: auto;
+    right: -30%;
+    height: 100%;
+  }
+
+  .rings {
+    right: auto;
+    left: 50% !important;
+    top: 10px !important;
+    transform: translateX(-50%) scale(0.62);
+    transform-origin: top center;
+  }
+}

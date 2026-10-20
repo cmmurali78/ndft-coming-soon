@@ -1,0 +1,60 @@
+import Hero from "@/components/sections/Hero";
+import StudioSection from "@/components/sections/StudioSection";
+import StatsBar from "@/components/home/StatsBar";
+import StreamCards from "@/components/home/StreamCards";
+import HomeDifference from "@/components/home/HomeDifference";
+import CtaBanner from "@/components/home/CtaBanner";
+import type { HeroContent } from "@/lib/types";
+
+const hero: HeroContent = {
+  slides: [
+    {
+      title: ["Make Your Passion"],
+      highlight: ["Your Profession."],
+      description:
+        "Studio-first programs in Fashion, Interior & Spatial, and Digital Design built with industry tools, AI workflows, and a 20+ year Naturals legacy.",
+      descriptionWidth: 560,
+    },
+    {
+      title: ["Shape Every"],
+      highlight: ["Space."],
+      description:
+        "Residential, retail and experiential spaces taught through live studios with AutoCAD, SketchUp and real-world briefs.",
+      descriptionWidth: 560,
+    },
+    {
+      title: ["Create What's"],
+      highlight: ["Next-Gen."],
+      description:
+        "UI/UX, motion and AI-led creative workflows for the modern studio, built with the tools working professionals use every day.",
+      descriptionWidth: 560,
+    },
+  ],
+  image: {
+    src: "/images/home/hero-student.webp",
+    alt: "Smiling ADFT student with arms crossed",
+    intrinsic: [883, 1294],
+    left: 826,
+    top: 23,
+    width: 423,
+  },
+  rings: { x: 790, y: 195 },
+};
+
+export default function HomePage() {
+  return (
+    <>
+      <Hero
+        {...hero}
+        variant="home"
+        primaryCta={{ label: "Explore Programs", href: "#section-streams" }}
+        secondaryCta={{ label: "Enquire Now", href: "#section-cta" }}
+      />
+      <StatsBar />
+      <StreamCards />
+      <HomeDifference />
+      <CtaBanner />
+      <StudioSection />
+    </>
+  );
+}
