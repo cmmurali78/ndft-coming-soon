@@ -2,8 +2,8 @@ import styles from "./StatsBar.module.css";
 
 const stats = [
   { label: "Programs Offered", value: "15+" },
-  { label: "Practical Learning", value: "80%" },
-  { label: "Industry-Focused", value: "100%" },
+  { label: "Studio Learning", value: "80%" },
+  { label: "Industry-Ready", value: "100%" },
   { label: "Naturals Legacy", value: "20+", suffix: "Yrs" },
 ];
 

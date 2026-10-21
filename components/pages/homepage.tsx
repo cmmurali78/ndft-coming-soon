@@ -6,30 +6,33 @@ import HomeDifference from "@/components/home/HomeDifference";
 import CtaBanner from "@/components/home/CtaBanner";
 import type { HeroContent } from "@/lib/types";
 
+// Only the first slide is shown for now; the others are kept for when the slider returns.
+const heroSlides: HeroContent["slides"] = [
+  {
+    title: ["Make Your Passion"],
+    highlight: ["Your Profession."],
+    description:
+      "Studio-first programs in Fashion, Interior & Spatial, and Digital Design built with industry tools, AI workflows, and a 20+ year Naturals legacy.",
+    descriptionWidth: 560,
+  },
+  {
+    title: ["Shape Every"],
+    highlight: ["Space."],
+    description:
+      "Residential, retail and experiential spaces taught through live studios with AutoCAD, SketchUp and real-world briefs.",
+    descriptionWidth: 560,
+  },
+  {
+    title: ["Create What's"],
+    highlight: ["Next-Gen."],
+    description:
+      "UI/UX, motion and AI-led creative workflows for the modern studio, built with the tools working professionals use every day.",
+    descriptionWidth: 560,
+  },
+];
+
 const hero: HeroContent = {
-  slides: [
-    {
-      title: ["Make Your Passion"],
-      highlight: ["Your Profession."],
-      description:
-        "Studio-first programs in Fashion, Interior & Spatial, and Digital Design built with industry tools, AI workflows, and a 20+ year Naturals legacy.",
-      descriptionWidth: 560,
-    },
-    {
-      title: ["Shape Every"],
-      highlight: ["Space."],
-      description:
-        "Residential, retail and experiential spaces taught through live studios with AutoCAD, SketchUp and real-world briefs.",
-      descriptionWidth: 560,
-    },
-    {
-      title: ["Create What's"],
-      highlight: ["Next-Gen."],
-      description:
-        "UI/UX, motion and AI-led creative workflows for the modern studio, built with the tools working professionals use every day.",
-      descriptionWidth: 560,
-    },
-  ],
+  slides: heroSlides.slice(0, 1),
   image: {
     src: "/images/home/hero-student.webp",
     alt: "Smiling ADFT student with arms crossed",
@@ -47,6 +50,7 @@ export default function HomePage() {
       <Hero
         {...hero}
         variant="home"
+        dotCount={0}
         primaryCta={{ label: "Explore Programs", href: "#section-streams" }}
         secondaryCta={{ label: "Enquire Now", href: "#section-cta" }}
       />

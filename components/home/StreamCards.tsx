@@ -46,7 +46,7 @@ export default function StreamCards() {
       <div className={styles.grid}>
         {streams.map((stream) => (
           <article key={stream.href} className={`${styles.card} ${styles[stream.color]}`}>
-            <div className={styles.media}>
+            <Link href={stream.href} className={styles.media}>
               <Image src={stream.image} alt={stream.alt} fill sizes="(max-width: 767px) 100vw, 370px" className={styles.image} />
               <span className={styles.tag}>{stream.tag}</span>
               <div className={styles.glass}>
@@ -63,7 +63,7 @@ export default function StreamCards() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </Link>
             <Link href={stream.href} className={`btn btn--primary ${styles.cta}`}>
               Explore Stream
             </Link>
