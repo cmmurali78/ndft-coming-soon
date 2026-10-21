@@ -9,10 +9,10 @@ import type { HeroContent } from "@/lib/types";
 // Only the first slide is shown for now; the others are kept for when the slider returns.
 const heroSlides: HeroContent["slides"] = [
   {
-    title: ["Make Your Passion"],
+    title: ["Turn Your", "Passion into"],
     highlight: ["Your Profession."],
     description:
-      "Studio-first programs in Fashion, Interior & Spatial, and Digital Design built with industry tools, AI workflows, and a 20+ year Naturals legacy.",
+      "Studio-first programs in Fashion & Costume Design, Interior & Spatial Design, and Digital & Creative Media - powered by industry tools and AI-enabled workflows, backed by the legacy of Naturals Salon.",
     descriptionWidth: 560,
   },
   {
