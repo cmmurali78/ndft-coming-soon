@@ -11,30 +11,20 @@ export const metadata: Metadata = {
 
 const contactDetails = [
   {
-    label: "Email",
-    value: "hello@naturalsadft.com",
-    href: "mailto:hello@naturalsadft.com",
-  },
-  {
-    label: "Phone",
-    value: "+91 98765 43210",
-    href: "tel:+919876543210",
-  },
-  {
-    label: "Chennai Campus",
+    label: "Naturals ADFT – Adyar, Chennai",
     value:
-      "Door No. 34-A (New No. 27), Third Floor, Plot No. 58, 1st Main Rd, above Zimson Showroom, Gandhi Nagar, Adyar, Chennai, Tamil Nadu 600020",
+      "Door No. 34 -A New No.27, Third Floor, Plot No. 58, 1st Main Rd, above Zimson Showroom, Gandhi Nagar, Adyar, Chennai, Tamil Nadu 600020",
     href: undefined,
   },
   {
-    label: "Bangalore Campus",
+    label: "Naturals ADFT – Basaveshwar Nagar, Bangalore",
     value:
       "471, 3rd Floor, above BATA Showroom, near Pavithra Paradise, 3rd Block, 3rd Stage, Basaveshwar Nagar, Bangalore",
     href: undefined,
   },
   {
     label: "Corporate Office",
-    value: "129, Sterling Road, Nungambakam, Chennai – 600 034, Tamil Nadu, India",
+    value: "129, Sterling Road, Nungambakam, Chennai - 600 034, Tamil Nadu, India",
     href: undefined,
   },
 ];

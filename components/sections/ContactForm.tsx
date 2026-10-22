@@ -62,9 +62,6 @@ export default function ContactForm() {
   return (
     <div className={styles.card} id="contact">
       <h3 className={styles.title}>Get in Touch</h3>
-      <p className={styles.lead}>
-        Have a question or want to know more? We&rsquo;d love to hear from you.
-      </p>
 
       {formStatus === "sent" ? (
         <div className={styles.success} role="status">
@@ -91,10 +88,11 @@ export default function ContactForm() {
             <input
               name="phone"
               type="tel"
-              placeholder="Phone Number (optional)"
+              placeholder="Phone Number"
               autoComplete="tel"
               pattern="[0-9+ ]{7,16}"
               title="Digits, spaces and + only"
+              required
             />
           </label>
           <Select name="subject" label="Subject" options={subjectOptions} />
