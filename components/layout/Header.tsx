@@ -65,6 +65,9 @@ export default function Header() {
             <a href="#section-footer" className="nav-link">
               Franchise
             </a>
+            <Link href="/contact" className={`nav-link${pathname === "/contact" ? " is-active" : ""}`}>
+              Contact
+            </Link>
             <a href={apply} className="btn btn--gradient">
               Apply Now
             </a>
@@ -124,6 +127,13 @@ export default function Header() {
           <a href="#section-footer" className="menu-panel__link" onClick={closeMenu}>
             Franchise
           </a>
+          <Link
+            href="/contact"
+            className={`menu-panel__link${pathname === "/contact" ? " is-active" : ""}`}
+            onClick={closeMenu}
+          >
+            Contact
+          </Link>
         </nav>
 
         <div className="menu-panel__cta">

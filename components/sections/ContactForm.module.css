@@ -1,0 +1,165 @@
+.card {
+  width: 100%;
+  max-width: 600px;
+  padding: 42px 40px 49px;
+  border-radius: 47px;
+  background: #bca2e0;
+  scroll-margin-top: 24px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--purple-900);
+}
+
+.lead {
+  max-width: 380px;
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #f4eefb;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  position: relative;
+  display: block;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #b89ac8;
+  border-radius: 4px;
+  background: #f0eaf8;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--purple-900);
+  outline: none;
+  appearance: none;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.field input,
+.field select {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.field textarea {
+  height: auto;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--purple-900);
+  opacity: 1;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--purple-700);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(86, 48, 116, 0.18);
+}
+
+.field input:user-invalid,
+.field textarea:user-invalid {
+  border-color: #c0392b;
+}
+
+.select select {
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.select svg {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: var(--purple-700);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.submit {
+  height: 41px;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--purple-900);
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--purple-950);
+  transform: translateY(-1px);
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.error {
+  margin-top: 4px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #fdecec;
+  font-size: 14px;
+  color: #a12424;
+}
+
+.success {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f0eaf8;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--purple-900);
+  animation: fadeIn 0.4s var(--ease);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: 28px 20px 28px;
+    border-radius: 28px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+}

@@ -1,0 +1,88 @@
+.page {
+  padding-bottom: 100px;
+}
+
+.hero {
+  padding-top: 72px;
+  padding-bottom: 56px;
+  text-align: center;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Info panel ────────────────────────────────────────────────────────── */
+
+.info {
+  padding: 42px 40px;
+  border-radius: 47px;
+  background: var(--lavender-100);
+  border: 1px solid var(--border-soft);
+}
+
+.infoHeading {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--purple-900);
+  margin-bottom: 28px;
+}
+
+.details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-500);
+}
+
+.detailValue {
+  font-size: 16px;
+  color: var(--purple-900);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+a.detailValue:hover {
+  color: var(--purple-700);
+  text-decoration: underline;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 48px;
+    padding-bottom: 36px;
+  }
+
+  .info {
+    padding: 28px 20px;
+    border-radius: 28px;
+  }
+}
