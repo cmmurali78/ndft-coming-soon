@@ -84,11 +84,11 @@ export default function ContactForm() {
             <input name="email" type="email" placeholder="Email" autoComplete="email" required />
           </label>
           <label className={styles.field}>
-            <span className="visually-hidden">Phone Number</span>
+            <span className="visually-hidden">Mobile Number</span>
             <input
               name="phone"
               type="tel"
-              placeholder="Phone Number"
+              placeholder="Mobile Number"
               autoComplete="tel"
               pattern="[0-9+ ]{7,16}"
               title="Digits, spaces and + only"
