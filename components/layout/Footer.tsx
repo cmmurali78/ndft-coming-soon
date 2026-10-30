@@ -44,6 +44,14 @@ export default function Footer() {
               <br />
               Fashion &amp; Technology
             </p>
+            <span className="footer-brand__divider" />
+            <Image
+              src="/images/skill-india.webp"
+              alt="Skill India – Kaushal Bharat Kushal Bharat"
+              width={110}
+              height={91}
+              className="footer-brand__skill-india"
+            />
           </div>
 
           <div className="footer-cols">

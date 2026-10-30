@@ -513,7 +513,7 @@ img {
 
 .footer-brand__text {
   margin-top: 16px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.2;
 }
 
@@ -546,7 +546,7 @@ img {
 }
 
 .footer-col a {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.25;
   color: #d9c9ee;
@@ -603,6 +603,22 @@ img {
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.2s var(--ease);
+}
+
+.footer-brand__divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-brand__skill-india {
+  display: block;
+  width: 110px;
+  height: auto;
+  margin-top: 20px;
+  object-fit: contain;
 }
 
 .footer-legal a:hover {
