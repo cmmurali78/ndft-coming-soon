@@ -2,14 +2,8 @@
 
 import { useState } from "react";
 import { indiaDistricts, indianStates } from "@/lib/data/indiaDistricts";
+import { submitCourseEnquiry } from "@/lib/enquiries";
 import styles from "./EnrolForm.module.css";
-
-/*
- * Submissions are sent to Formspark (https://formspark.io, form "ADFT Enroll Form"), which emails
- * them to the recipients configured in the Formspark dashboard. The form ID is public by design;
- * NEXT_PUBLIC_FORMSPARK_FORM_ID can override it (e.g. for a staging form).
- */
-const FORMSPARK_FORM_ID = process.env.NEXT_PUBLIC_FORMSPARK_FORM_ID || "W266pqty5";
 
 const profileOptions = ["Student", "Graduate", "Working Professional", "Career Switcher", "Entrepreneur"];
 
@@ -68,18 +62,10 @@ export default function EnrolForm({ stream }: { stream: string }) {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
+    const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
     setStatus("sending");
-    try {
-      const res = await fetch(`https://submit-form.com/${FORMSPARK_FORM_ID}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ ...data, referred: data.referred ? "Yes" : "No" }),
-      });
-      setStatus(res.ok ? "sent" : "error");
-    } catch {
-      setStatus("error");
-    }
+    const result = await submitCourseEnquiry(data);
+    setStatus(result.ok ? "sent" : "error");
   }
 
   return (

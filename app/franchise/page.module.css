@@ -1,0 +1,933 @@
+.page {
+  padding-bottom: 0;
+  overflow-x: clip;
+}
+
+.page > section {
+  margin-top: 48px;
+}
+
+/* Lavender field behind the About → Why → Vision sections.
+   Figma: 1237px wide at x101 in a 1440 frame → ~100px side margins,
+   which matches the container's outer width (1200 + 2×20 gutter). */
+.lavBand {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin: 48px auto 0;
+  border-radius: 23px;
+  background: #f6f3f8;
+}
+
+.lavBand > section {
+  margin-top: 48px;
+}
+
+.lavBand > section:first-child {
+  margin-top: 0;
+}
+
+.mark {
+  width: 64px;
+  height: auto;
+  margin-bottom: 14px;
+}
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--purple-500);
+}
+
+.h2 {
+  font-family: var(--font-heading);
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1;
+  color: #121212;
+}
+
+.h2Sm {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.125;
+  color: var(--purple-900);
+}
+
+.h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: #121212;
+}
+
+.bodyDark {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.26;
+  color: #121212;
+}
+
+.bodyPurple {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.26;
+  color: var(--purple-900);
+}
+
+.source {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  line-height: 1.45;
+  color: #6b5a7a;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────── */
+
+.btnYellow {
+  background: var(--yellow);
+  color: var(--purple-900);
+  font-weight: 700;
+  padding: 0 22px;
+}
+
+.btnYellow:hover {
+  box-shadow: 0 10px 22px -10px rgba(252, 182, 20, 0.85);
+}
+
+.btnPurple {
+  background: var(--purple-700);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0 22px;
+}
+
+.btnPurple:hover {
+  background: var(--purple-900);
+}
+
+.btnWhite {
+  background: #ffffff;
+  color: var(--purple-700);
+  font-weight: 700;
+  padding: 0 22px;
+}
+
+/* ── 1. Hero ──────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  margin-top: 0;
+  background: #4a2168;
+  overflow: hidden;
+  aspect-ratio: 2008 / 783;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% center;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.heroCopy {
+  max-width: 672px;
+}
+
+.heroEyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.heroTitle {
+  margin-top: 18px;
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.heroTitle span {
+  color: #e3add8;
+}
+
+.heroSub {
+  margin-top: 18px;
+  font-family: var(--font-body);
+  font-size: 25px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.heroText {
+  max-width: 505px;
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.21;
+  color: #ffffff;
+}
+
+.heroInner .btnYellow {
+  margin-top: 28px;
+}
+
+/* ── 2. The Opportunity ───────────────────────────────────────────────── */
+
+.oppGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 40px;
+  align-items: start;
+}
+
+.oppCopy .eyebrow {
+  margin-bottom: 10px;
+}
+
+.oppCopy .h2 {
+  margin-bottom: 16px;
+}
+
+.statsCard {
+  padding: 22px;
+  border-radius: 30px;
+  background: rgba(242, 237, 247, 0.5);
+}
+
+.marketCard {
+  padding: 22px;
+  border-radius: 30px;
+  background: transparent;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.statTile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 14px;
+  border-radius: 14px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.statValue {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--purple-900);
+}
+
+.statValue span {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.statNote {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  line-height: 1.26;
+  color: var(--purple-900);
+}
+
+.statsCard .source {
+  margin-top: 16px;
+}
+
+.oppMatters {
+  align-self: start;
+}
+
+.oppMatters .h3 {
+  margin-bottom: 10px;
+}
+
+.highlight {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: var(--yellow);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.26;
+  color: var(--purple-900);
+}
+
+.marketCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.marketTile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 14px 16px 20px;
+  border-radius: 14px;
+  background: #f9f6fb;
+}
+
+.marketTile::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 16px;
+  bottom: 16px;
+  width: 3px;
+  border-radius: 2px;
+  background: #9872cb;
+}
+
+.marketIcon {
+  color: #9872cb;
+}
+
+.marketTile p {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  line-height: 1.26;
+  color: var(--purple-900);
+}
+
+/* ── 3. About ─────────────────────────────────────────────────────────── */
+
+.aboutCard {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 40px;
+  align-items: center;
+  padding: 32px 36px;
+  border-radius: 23px;
+  background: #f6f3f8;
+}
+
+.aboutCopy .h2Sm {
+  margin: 14px 0 18px;
+}
+
+.aboutTag {
+  margin-top: 22px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--purple-900);
+}
+
+.programGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.programCard {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: var(--shadow-card);
+}
+
+.programThumb {
+  aspect-ratio: 198 / 144;
+  overflow: hidden;
+}
+
+.programThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.programMeta {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px 14px;
+}
+
+.programDot {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 50%;
+}
+
+.programTitle {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--purple-900);
+}
+
+.programSub {
+  margin-top: 3px;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  line-height: 1.3;
+  color: var(--purple-900);
+}
+
+.dot_pink {
+  background: var(--pink);
+}
+.dot_yellow {
+  background: var(--yellow);
+}
+.dot_blue {
+  background: var(--blue);
+}
+
+/* ── 4. Why Franchise ─────────────────────────────────────────────────── */
+
+.whyCard {
+  padding: 26px;
+  border-radius: 29px;
+  background: #ffffff;
+  box-shadow: var(--shadow-card);
+}
+
+.whyHead {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 36px;
+  border-radius: 25px;
+  background: #f6f3f8;
+}
+
+.whyMesh {
+  position: absolute;
+  right: -3%;
+  top: 50%;
+  width: 55%;
+  height: auto;
+  transform: translateY(-50%) rotate(-14deg);
+  transform-origin: center;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.whyHeadCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+}
+
+.whyHeadCopy .eyebrow {
+  margin-bottom: 10px;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 22px;
+}
+
+.whyItem {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 22px;
+  border-left: 3px solid #9872cb;
+}
+
+.whyItem:first-child {
+  border-left: 0;
+  padding-left: 4px;
+}
+
+.whyIcon {
+  display: grid;
+  place-items: center;
+  width: 51px;
+  height: 47px;
+  border-radius: 6px;
+  background: #c7b0e5;
+  color: #ffffff;
+}
+
+.whyIcon img {
+  width: 34px;
+  height: 34px;
+}
+
+.whyTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.26;
+  color: #121212;
+}
+
+.whyText {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.26;
+  color: #121212;
+}
+
+/* ── 5. Vision / Support ──────────────────────────────────────────────── */
+
+.visionCard {
+  padding: 28px;
+  border-radius: 29px;
+  background: #f6f3f8;
+}
+
+.visionTop {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.visionImage {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 529 / 271;
+}
+
+.visionImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.visionCopy .eyebrow {
+  margin-bottom: 10px;
+}
+
+.visionCopy .h2 {
+  margin-bottom: 16px;
+}
+
+.visionCopy .btnYellow {
+  margin-top: 24px;
+}
+
+.supportGrid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.supportCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: var(--shadow-card);
+}
+
+.supportHead {
+  display: grid;
+  place-items: center;
+  min-height: 96px;
+  padding: 10px 6px;
+}
+
+.supportTitle {
+  width: 100%;
+  min-width: 0;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  color: #ffffff;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.supportDesc {
+  flex: 1;
+  padding: 12px 10px 16px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.26;
+  text-align: center;
+  color: #121212;
+}
+
+.strip_yellow {
+  background: var(--yellow);
+}
+.strip_pink {
+  background: var(--pink);
+}
+.strip_blue {
+  background: var(--blue);
+}
+
+/* ── 6. Investment Snapshot ───────────────────────────────────────────── */
+
+.investment {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.investCopy .eyebrow {
+  margin-bottom: 10px;
+}
+
+.investCopy .h2 {
+  margin-bottom: 16px;
+}
+
+.investCopy .btnPurple {
+  margin-top: 26px;
+}
+
+.factLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--purple-500);
+}
+
+.factBig {
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 40px;
+  font-weight: 700;
+  color: #121212;
+}
+
+.factMed {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 600;
+  color: #121212;
+}
+
+.factDivider {
+  display: block;
+  height: 1px;
+  margin: 24px 0;
+  background: #9872cb;
+}
+
+.factRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+/* ── 7. Who can partner + form ────────────────────────────────────────── */
+
+.partner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+  scroll-margin-top: 100px;
+}
+
+.page > section.partner {
+  margin-top: 72px;
+}
+
+.partnerCopy .h2 {
+  margin: 14px 0 22px;
+}
+
+.partnerIntro {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  color: #121212;
+}
+
+.audience {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.audience li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 20px;
+  line-height: 1.25;
+  color: #121212;
+}
+
+.audienceDot {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+  border-radius: 50%;
+}
+
+.partnerDivider {
+  display: block;
+  height: 1px;
+  margin: 28px 0;
+  background: #9872cb;
+}
+
+.partnerFacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.partnerFacts .eyebrow {
+  margin-bottom: 6px;
+}
+
+/* ── 8. City CTA banner ───────────────────────────────────────────────── */
+
+.cityCta {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(130% 150% at 0% 40%, #34154a 23%, #7c32b0 100%);
+}
+
+.cityRings {
+  position: absolute;
+  top: 54%;
+  right: -4%;
+  width: 54%;
+  height: auto;
+  transform: translateY(-50%);
+  z-index: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.cityInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 32px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.cityCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.cityTitle {
+  margin: 12px 0 16px;
+  font-family: var(--font-heading);
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.cityText {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1.21;
+  color: #ffffff;
+}
+
+.cityCopy .btnWhite {
+  margin-top: 26px;
+}
+
+.cityMap {
+  position: absolute;
+  top: 50%;
+  right: -20%;
+  width: 68%;
+  height: auto;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .h2,
+  .cityTitle {
+    font-size: 42px;
+  }
+
+  .heroTitle {
+    font-size: 52px;
+  }
+
+  .oppGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsGrid,
+  .marketCard {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .aboutCard {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .whyGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 0;
+  }
+
+  .whyItem:nth-child(3n + 1) {
+    border-left: 0;
+    padding-left: 4px;
+  }
+
+  .supportGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .visionTop {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .investment,
+  .partner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .page > section {
+    margin-top: 56px;
+  }
+
+  .h2,
+  .cityTitle {
+    font-size: 32px;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .heroBg img {
+    object-position: 70% center;
+  }
+
+  .heroInner {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .heroTitle {
+    font-size: 38px;
+  }
+
+  .statsGrid,
+  .marketCard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .programGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutCard,
+  .whyCard,
+  .visionCard {
+    padding: 24px;
+  }
+
+  .whyHead {
+    padding: 24px;
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .whyItem,
+  .whyItem:nth-child(3n + 1) {
+    border-left: 0;
+    padding: 0;
+  }
+
+  .supportGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .audience li {
+    font-size: 17px;
+  }
+
+  .cityInner {
+    grid-template-columns: 1fr;
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  .cityMap {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    transform: none;
+    margin-top: 24px;
+  }
+
+  .factBig {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 460px) {
+  .factRow,
+  .partnerFacts,
+  .supportGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -40,6 +40,29 @@ export default function Header() {
 
   return (
     <>
+      <div className="topbar">
+        <div className="container topbar__inner">
+          <nav className="topbar__links" aria-label="Utility">
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/blog">Blog</Link>
+          </nav>
+          <div className="topbar__actions">
+            <a
+              href="https://adft.lmsstudy.com/"
+              className="topbar__pill topbar__pill--login"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Student Login
+            </a>
+            <Link href="/verify" className="topbar__pill topbar__pill--verify">
+              Verify Credential
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <header className="site-header">
         <div className="container site-header__inner">
           <Link className="site-header__logo" href="/" aria-label="Naturals ADFT home">
@@ -62,11 +85,8 @@ export default function Header() {
                 </Link>
               );
             })}
-            <a href="#section-footer" className="nav-link">
+            <Link href="/franchise" className={`nav-link${pathname === "/franchise" ? " is-active" : ""}`}>
               Franchise
-            </a>
-            <Link href="/contact" className={`nav-link${pathname === "/contact" ? " is-active" : ""}`}>
-              Contact
             </Link>
             <a href={apply} className="btn btn--gradient">
               Apply Now
@@ -124,9 +144,27 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <a href="#section-footer" className="menu-panel__link" onClick={closeMenu}>
+          <Link
+            href="/franchise"
+            className={`menu-panel__link${pathname === "/franchise" ? " is-active" : ""}`}
+            onClick={closeMenu}
+          >
             Franchise
-          </a>
+          </Link>
+          <Link
+            href="/about"
+            className={`menu-panel__link${pathname === "/about" ? " is-active" : ""}`}
+            onClick={closeMenu}
+          >
+            About
+          </Link>
+          <Link
+            href="/blog"
+            className={`menu-panel__link${pathname === "/blog" ? " is-active" : ""}`}
+            onClick={closeMenu}
+          >
+            Blog
+          </Link>
           <Link
             href="/contact"
             className={`menu-panel__link${pathname === "/contact" ? " is-active" : ""}`}

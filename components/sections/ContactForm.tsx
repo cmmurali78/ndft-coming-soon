@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useFormspark } from "@formspark/use-formspark";
+import { submitGeneralEnquiry } from "@/lib/enquiries";
 import styles from "./ContactForm.module.css";
-
-const FORMSPARK_FORM_ID = "ISMd4bS9B";
 
 const subjectOptions = [
   "General Enquiry",
@@ -45,18 +43,16 @@ function Select({
 }
 
 export default function ContactForm() {
-  const [submit, submitting] = useFormspark({ formId: FORMSPARK_FORM_ID });
   const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+  const [submitting, setSubmitting] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    try {
-      await submit(data);
-      setFormStatus("sent");
-    } catch {
-      setFormStatus("error");
-    }
+    const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
+    setSubmitting(true);
+    const result = await submitGeneralEnquiry(data);
+    setSubmitting(false);
+    setFormStatus(result.ok ? "sent" : "error");
   }
 
   return (

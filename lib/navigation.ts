@@ -3,14 +3,15 @@ export type StreamColor = "pink" | "yellow" | "blue";
 export interface StreamLink {
   label: string;
   footerLabel: string;
+  streamLabel: string;
   href: string;
   color: StreamColor;
 }
 
 export const streamLinks: StreamLink[] = [
-  { label: "Fashion Design", footerLabel: "Fashion & Costume Design", href: "/fashion-design", color: "pink" },
-  { label: "Interior & Spatial", footerLabel: "Interior & Spatial Design", href: "/interior-spatial", color: "yellow" },
-  { label: "Digital Design", footerLabel: "Digital & Creative Media", href: "/digital-design", color: "blue" },
+  { label: "Fashion Design", footerLabel: "Fashion & Costume Design", streamLabel: "Fashion Design Stream", href: "/fashion-design", color: "pink" },
+  { label: "Interior & Spatial", footerLabel: "Interior & Spatial Design", streamLabel: "Interior & Spatial Design", href: "/interior-spatial", color: "yellow" },
+  { label: "Digital Design", footerLabel: "Digital & Creative Media", streamLabel: "Digital Design & Media", href: "/digital-design", color: "blue" },
 ];
 
 export const streamColorVar: Record<StreamColor, string> = {
