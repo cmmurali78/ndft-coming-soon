@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+
 import { Calendar, Clock, ArrowRight, TrendingUp, ChevronDown } from "@/components/ui/icons";
 import type { BlogListItem } from "@/lib/portal";
 import styles from "./page.module.css";
@@ -22,49 +23,25 @@ export default function BlogIndex({ posts }: { posts: BlogListItem[] }) {
     [posts]
   );
 
-  if (posts.length === 0) {
-    return (
-      <div className={styles.empty}>
-        <h2>No articles yet</h2>
-        <p>We&rsquo;re working on fresh stories — please check back soon.</p>
-      </div>
-    );
-  }
-
   const filtered = category === "All Categories" ? posts : posts.filter((p) => p.category === category);
-  const featured = filtered[0] ?? null;
-  const rest = featured ? filtered.filter((p) => p.slug !== featured.slug) : filtered;
-  const hasMore = visible < rest.length;
+  const hasMore = visible < filtered.length;
 
   return (
     <div className={styles.layout}>
       <div className={styles.main}>
-        {featured && (
-          <Link href={`/blog/${featured.slug}`} className={styles.featured}>
-            <div className={styles.featuredImg}>
-              {featured.thumbnail ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={featured.thumbnail} alt={featured.title} />
-              ) : (
-                <span className={styles.imgFallback} aria-hidden="true" />
-              )}
-            </div>
-            <div className={styles.featuredBody}>
-              <span className={styles.cat}>{featured.category}</span>
-              <h2 className={styles.featuredTitle}>{featured.title}</h2>
-              {featured.excerpt && <p className={styles.featuredExcerpt}>{featured.excerpt}</p>}
-              {featured.date && (
-                <p className={styles.metaDate}>
-                  <Calendar size={14} /> {featured.date}
-                </p>
-              )}
-            </div>
-          </Link>
-        )}
+        {/* Banner — same position as skillcert's featured post */}
+        <div className={styles.bannerWrap}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/blog/banner.webp"
+            alt="Ideas, Insights and Inspiration for the Creative Generation"
+            className={styles.bannerImg}
+          />
+        </div>
 
-        {rest.length > 0 ? (
+        {filtered.length > 0 ? (
           <div className={styles.grid}>
-            {rest.slice(0, visible).map((post) => (
+            {filtered.slice(0, visible).map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className={styles.card}>
                 <div className={styles.cardImg}>
                   {post.thumbnail ? (

@@ -19,6 +19,11 @@ export type BlogListItem = {
   views: number;
 };
 
+export type BlogFaq = {
+  question: string;
+  answer: string;
+};
+
 export type BlogArticle = {
   slug: string;
   title: string;
@@ -31,6 +36,7 @@ export type BlogArticle = {
   metaDescription: string | null;
   author: string;
   content: string;
+  faqs?: BlogFaq[];
 };
 
 /** GET /api/public/blogs — published posts, newest first. Returns [] on any failure. */

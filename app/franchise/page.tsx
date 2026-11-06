@@ -91,7 +91,6 @@ export default function FranchisePage() {
         </div>
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
-            <p className={styles.heroEyebrow}>Franchise Opportunity</p>
             <h1 className={styles.heroTitle}>
               Turn Creative Passion into a <span>Business.</span>
             </h1>
