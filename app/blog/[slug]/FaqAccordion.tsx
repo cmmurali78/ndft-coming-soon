@@ -32,7 +32,7 @@ export default function FaqAccordion({ faqs }: { faqs: BlogFaq[] }) {
               dangerouslySetInnerHTML={{
                 __html: faq.answer
                   .replace(/\[([^\]]+)\]\s*\(([^)]+)\)/g, '<a href="$2">$1</a>')
-                  .replace(/\*\*(.+?)\*\*/gs, "<strong>$1</strong>"),
+                  .replace(/\*\*([\s\S]+?)\*\*/g, "<strong>$1</strong>"),
               }}
             />
           )}

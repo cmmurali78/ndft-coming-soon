@@ -27,7 +27,7 @@ export default async function BlogArticlePage({ params }: Params) {
   const processedContent = (() => {
     let html = blog.content
       ?.replace(/\[([^\]]+)\]\s*\(([^)]+)\)/g, '<a href="$2">$1</a>')
-      .replace(/\*\*(.+?)\*\*/gs, "<strong>$1</strong>") ?? "";
+      .replace(/\*\*([\s\S]+?)\*\*/g, "<strong>$1</strong>") ?? "";
 
     // Wrap the Conclusion section in a styled div
     html = html.replace(
