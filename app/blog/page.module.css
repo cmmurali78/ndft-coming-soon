@@ -146,7 +146,7 @@
 }
 
 .cardImg {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--lavender-100);
 }
@@ -154,13 +154,13 @@
 .cardImg img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   transition: transform 0.6s var(--ease);
 }
 
 .card:hover .cardImg img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .cardBody {
