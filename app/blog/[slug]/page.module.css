@@ -1,36 +1,49 @@
 .page {
-  padding-bottom: 80px;
+  padding-top: 48px;
+  padding-bottom: 64px;
   overflow-x: clip;
 }
 
-/* ── Hero header ──────────────────────────────────────────────────────── */
+.heroWrap {
+  padding-bottom: 16px;
+}
+
+/* ── Hero: full-width bg image with overlay ───────────────────────────── */
 
 .hero {
-  background: var(--purple-900);
-  padding: 36px 0 40px;
-  margin-bottom: 0;
+  position: relative;
+  min-height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--purple-900);
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.6) 35%,
+    transparent 75%
+  );
 }
 
 .heroBody {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 820px;
-}
-
-/* ── Hero image ───────────────────────────────────────────────────────── */
-
-.heroImgWrap {
-  margin: 28px 0 0;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px -8px rgba(67, 32, 91, 0.2);
-}
-
-.heroImg {
-  width: 100%;
-  height: auto;
-  display: block;
+  gap: 0;
+  max-width: 640px;
+  padding: 48px 64px;
 }
 
 /* ── Breadcrumb ───────────────────────────────────────────────────────── */
@@ -39,8 +52,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
 }
 
 .breadcrumb a {
@@ -60,25 +74,24 @@
 
 .categoryBadge {
   align-self: flex-start;
-  padding: 4px 14px;
+  padding: 6px 16px;
   border-radius: 999px;
   background: var(--purple-500);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
   color: #fff;
+  margin-bottom: 24px;
 }
 
 /* ── Title ────────────────────────────────────────────────────────────── */
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(28px, 3.5vw, 48px);
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.15;
   color: #ffffff;
-  margin: 0;
+  margin: 0 0 32px;
 }
 
 /* ── Meta ─────────────────────────────────────────────────────────────── */
@@ -102,24 +115,26 @@
 
 .contentSection {
   display: flex;
-  gap: 48px;
+  gap: 32px;
   align-items: flex-start;
-  margin-top: 48px;
+  padding-top: 16px;
+  padding-bottom: 48px;
 }
 
 /* ── TOC ──────────────────────────────────────────────────────────────── */
 
 .toc {
-  width: 280px;
+  width: 288px;
   flex-shrink: 0;
+  position: sticky;
+  top: 16px;
+  align-self: flex-start;
 }
 
 .tocInner {
-  position: sticky;
-  top: 88px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .tocTitle {
@@ -127,7 +142,7 @@
   font-size: 20px;
   font-weight: 700;
   color: var(--purple-900);
-  margin: 0 0 20px;
+  margin: 0 0 8px;
 }
 
 .tocNav {
@@ -201,7 +216,7 @@
 }
 
 .content :global(h2) {
-  margin: 40px 0 14px;
+  margin: 28px 0 12px;
   font-family: var(--font-heading);
   font-size: 28px;
   font-weight: 700;
@@ -210,7 +225,7 @@
 }
 
 .content :global(h3) {
-  margin: 28px 0 12px;
+  margin: 20px 0 10px;
   font-family: var(--font-heading);
   font-size: 22px;
   font-weight: 700;
@@ -218,7 +233,7 @@
 }
 
 .content :global(p) {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
 }
 
 .content :global(ul),
@@ -404,16 +419,27 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .hero {
-    min-height: 320px;
-    border-radius: 14px;
-    margin-bottom: 32px;
+    min-height: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: 360px;
+    border-radius: 12px;
   }
 
   .heroBody {
-    padding: 28px 20px 32px;
-    gap: 10px;
+    padding: 32px 24px;
+    max-width: 100%;
   }
 
   .contentSection {

@@ -78,6 +78,8 @@ export type CertificateResult = {
     course: string;
     issuedAt: string;
     code: string;
+    certificationTitle?: string;
+    dateOfCompletion?: string;
   };
 };
 

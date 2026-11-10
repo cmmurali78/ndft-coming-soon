@@ -24,21 +24,22 @@ export default function BlogIndex({ posts }: { posts: BlogListItem[] }) {
   );
 
   const filtered = category === "All Categories" ? posts : posts.filter((p) => p.category === category);
+
   const hasMore = visible < filtered.length;
 
   return (
     <div className={styles.layout}>
       <div className={styles.main}>
-        {/* Banner — same position as skillcert's featured post */}
-        <div className={styles.bannerWrap}>
+        {/* Static branded banner */}
+        <div className={styles.featuredImg}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/blog/banner.webp"
             alt="Ideas, Insights and Inspiration for the Creative Generation"
-            className={styles.bannerImg}
           />
         </div>
 
+        {/* All posts in grid */}
         {filtered.length > 0 ? (
           <div className={styles.grid}>
             {filtered.slice(0, visible).map((post) => (
@@ -65,7 +66,7 @@ export default function BlogIndex({ posts }: { posts: BlogListItem[] }) {
             ))}
           </div>
         ) : (
-          <p className={styles.noneInCat}>No articles in this category yet.</p>
+          <p className={styles.noneInCat}>No posts in this category yet.</p>
         )}
 
         {hasMore && (

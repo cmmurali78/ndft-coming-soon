@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/icons";
 import styles from "./page.module.css";
 
-type CertData = { name: string; course: string; issuedAt: string; code: string };
+type CertData = { name: string; course: string; issuedAt: string; code: string; certificationTitle?: string; dateOfCompletion?: string; };
 
 export default function VerifyForm() {
   const [code, setCode] = useState("");
@@ -50,9 +50,10 @@ export default function VerifyForm() {
     }
   }
 
-  const issued = data?.issuedAt
-    ? new Date(data.issuedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
-    : "";
+  const formatDate = (v?: string) =>
+    v ? new Date(v).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) : "";
+
+  const completionDate = formatDate(data?.dateOfCompletion ?? data?.issuedAt);
 
   return (
     <>
@@ -114,10 +115,10 @@ export default function VerifyForm() {
 
           <div className={styles.resultBody}>
             <div className={styles.fieldGrid}>
-              <Field icon={<User size={18} />} label="Name" value={data.name} />
-              <Field icon={<BookOpen size={18} />} label="Course" value={data.course} />
-              <Field icon={<Calendar size={18} />} label="Date of Issue" value={issued} />
-              <Field icon={<QrCode size={18} />} label="Certificate ID" value={data.code} />
+              <Field icon={<User size={18} />} label="Student Name" value={data.name} />
+              <Field icon={<BookOpen size={18} />} label="Course Name" value={data.course} />
+              <Field icon={<ShieldCheck size={18} />} label="Certification Title" value={data.certificationTitle ?? "Certificate"} />
+              <Field icon={<Calendar size={18} />} label="Date of Completion" value={completionDate} />
             </div>
           </div>
         </div>
