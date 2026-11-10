@@ -60,13 +60,9 @@ export default async function BlogArticlePage({ params }: Params) {
 
   return (
     <article className={styles.page}>
-      {/* ── Hero ── */}
-      <div className="container" style={{ paddingTop: "40px" }}>
-        <div
-          className={styles.hero}
-          style={blog.image ? { backgroundImage: `url(${blog.image})` } : undefined}
-        >
-          <div className={styles.heroOverlay} />
+      {/* ── Hero header ── */}
+      <div className={styles.hero}>
+        <div className="container">
           <div className={styles.heroBody}>
             <nav className={styles.breadcrumb} aria-label="Breadcrumb">
               <Link href="/">Home</Link>
@@ -96,6 +92,16 @@ export default async function BlogArticlePage({ params }: Params) {
           </div>
         </div>
       </div>
+
+      {/* ── Full image ── */}
+      {blog.image && (
+        <div className="container">
+          <div className={styles.heroImgWrap}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={blog.image} alt={blog.title} className={styles.heroImg} />
+          </div>
+        </div>
+      )}
 
       {/* ── Content + TOC ── */}
       <div className={`container ${styles.contentSection}`}>

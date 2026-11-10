@@ -81,6 +81,69 @@ export type CertificateResult = {
   };
 };
 
+export type StudentVerifyData = {
+  studentCode: string;
+  studentName: string;
+  firstName: string;
+  lastName: string | null;
+  email: string;
+  phone: string;
+  dateOfBirth: string | null;
+  gender: string | null;
+  photoUrl: string | null;
+  address: {
+    line1: string | null; line2: string | null; city: string | null;
+    district: string | null; state: string | null; country: string | null; pincode: string | null;
+  };
+  academic: {
+    highestQualification: string | null; institutionName: string | null;
+    yearOfPassing: number | null; disciplineStream: string | null;
+  };
+  guardian: { name: string | null; phone: string | null };
+  certificate: {
+    certificateId: string; certificationTitle: string; issuedAt: string;
+    dateOfCompletion: string; fileUrl: string | null; status: string;
+  };
+  course: {
+    courseName: string; courseCode: string; duration: string | null;
+    description: string | null; skills: string | null; keyCompetencies: string | null;
+  };
+  enrollment: {
+    enrollmentDate: string | null; expectedCompletionDate: string | null;
+    trainingMode: string | null; status: string | null; batchName: string;
+    batchStartDate: string | null; batchEndDate: string | null;
+  };
+  center: {
+    name: string | null; centerCode: string; city: string | null;
+    district: string | null; state: string | null;
+  };
+};
+
+export type StudentVerifyResult = {
+  valid: boolean;
+  message?: string;
+  data?: StudentVerifyData;
+};
+
+/**
+ * GET /api/public/verify/[code] — student verification by encrypted student code (from QR).
+ */
+export async function verifyStudent(code: string): Promise<StudentVerifyResult> {
+  const trimmed = code.trim();
+  if (!trimmed) return { valid: false, message: "Invalid verification code." };
+  try {
+    const res = await fetch(
+      `${PORTAL_API_URL}/api/public/verify/${encodeURIComponent(trimmed)}`,
+      { cache: "no-store" }
+    );
+    const json = (await res.json().catch(() => null)) as StudentVerifyResult | null;
+    if (json && typeof json === "object" && "valid" in json) return json;
+    return { valid: false, message: "No matching student record was found." };
+  } catch {
+    return { valid: false, message: "Unable to reach the verification server. Please try again later." };
+  }
+}
+
 /**
  * GET /api/verify/certificate/[code] — certificate lookup.
  * The portal's verify route is not CORS-enabled, so this runs server-side
